@@ -33,6 +33,83 @@ const pageDescription = 'Política de privacidad de Herbeplast: cookies, datos, 
 @keyframes float { 0%,100% { transform: translateY(0) } 50% { transform: translateY(12px) } }
 @keyframes float2 { 0%,100% { transform: translateY(0) } 50% { transform: translateY(-14px) } }
 
+/* Movimiento persistente para que el cambio se perciba mientras se observa el hero. */
+.hero-privacy .hero-bg .b1 {
+    opacity: .52;
+    animation: privacy-glow-drift-a 5.5s ease-in-out infinite;
+}
+.hero-privacy .hero-bg .b2 {
+    opacity: .5;
+    animation: privacy-glow-drift-b 6.5s ease-in-out infinite;
+}
+.hero-privacy .hero-visual {
+    animation: privacy-image-enter 900ms cubic-bezier(.2,.75,.25,1) 120ms both;
+}
+.hero-privacy .hero-photo {
+    animation: privacy-image-float 4.6s ease-in-out 1s infinite;
+    will-change: transform;
+}
+.hero-privacy .hero-visual::before {
+    animation: privacy-panel-glow 4.6s ease-in-out infinite alternate;
+}
+.hero-privacy .hero-rings {
+    animation: privacy-ring-pulse 3.2s ease-in-out infinite;
+}
+.hero-privacy .hero-title {
+    animation: privacy-copy-enter 650ms cubic-bezier(.2,.75,.25,1) 180ms both;
+}
+.hero-privacy .hero-sub {
+    animation: privacy-copy-enter 650ms cubic-bezier(.2,.75,.25,1) 320ms both;
+}
+.hero-privacy .hero-chips {
+    animation: privacy-copy-enter 650ms cubic-bezier(.2,.75,.25,1) 460ms both;
+}
+
+@keyframes privacy-glow-drift-a {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(48px, 30px) scale(1.2); }
+}
+@keyframes privacy-glow-drift-b {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(-44px, -34px) scale(1.18); }
+}
+@keyframes privacy-image-enter {
+    from { opacity: 0; transform: translateY(28px) scale(.94); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes privacy-copy-enter {
+    from { opacity: 0; transform: translateY(22px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes privacy-image-float {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-12px) scale(1.018); }
+}
+@keyframes privacy-panel-glow {
+    from { opacity: .55; transform: translateX(-8px) scale(.98); }
+    to { opacity: 1; transform: translateX(8px) scale(1.02); }
+}
+@keyframes privacy-ring-pulse {
+    0%, 100% { opacity: .45; transform: scale(.96); }
+    50% { opacity: .9; transform: scale(1.04); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-privacy .hero-bg .b1,
+    .hero-privacy .hero-bg .b2,
+    .hero-privacy .hero-visual,
+    .hero-privacy .hero-photo,
+    .hero-privacy .hero-visual::before,
+    .hero-privacy .hero-rings,
+    .hero-privacy .hero-title,
+    .hero-privacy .hero-sub,
+    .hero-privacy .hero-chips {
+        animation: none;
+        opacity: 1;
+        transform: none;
+    }
+}
+
 .hero-grid { display: grid; grid-template-columns: minmax(0,1.05fr) minmax(0,.95fr); align-items: center; gap: clamp(16px,3vw,32px); }
 .hero-title { font-size: clamp(26px,3.6vw,38px); line-height: 1.12; margin: 0 0 8px; }
 .hero-sub { color: #4b5563; margin: 0; }
