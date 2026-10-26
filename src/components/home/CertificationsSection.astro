@@ -1,0 +1,272 @@
+<section id="certificaciones" class="trust-section">
+			<div class="container">
+				<div class="certifications-block">
+					<h2 class="section-title text-center">Calidad certificada</h2>
+					<p class="section-subtitle text-center">Estándares internacionales que garantizan excelencia.</p>
+
+					<!-- Wrapper con scroll horizontal -->
+					<div class="certifications-scroll-wrapper">
+						<div class="certifications-grid">
+
+							<div class="certification-item" data-float data-delay="100">
+								<div class="cert-icon">
+									<img src="/assets/img/certificaciones/9001.webp" alt="Certificación ISO 9001:2015" width="120" height="210" loading="lazy">
+								</div>
+<!--								<h3 class="cert-title">ISO 9001:2015</h3>-->
+								<p class="cert-description">Gestión de calidad</p>
+							</div>
+
+							<div class="certification-item" data-float data-delay="200">
+								<div class="cert-icon">
+									<img src="/assets/img/certificaciones/14001.webp" alt="Certificación ISO 14001:2015" width="120" height="210" loading="lazy">
+								</div>
+<!--								<h3 class="cert-title">ISO 14001:2015</h3>-->
+								<p class="cert-description">Gestión ambiental</p>
+							</div>
+
+							<div class="certification-item" data-float data-delay="100">
+								<div class="cert-icon">
+									<img src="/assets/img/certificaciones/45001.webp" alt="Certificación ISO 45001:2018" width="120" height="210" loading="lazy">
+								</div>
+<!--								<h3 class="cert-title">ISO 45001:2018</h3>-->
+								<p class="cert-description">Gestión de SST</p>
+							</div>
+
+							<div class="certification-item" data-float data-delay="200">
+								<div class="cert-icon">
+									<img src="/assets/img/certificaciones/22000.webp" alt="Certificación ISO 22000" width="120" height="210" loading="lazy">
+								</div>
+<!--								<h3 class="cert-title">ISO 22000</h3>-->
+								<p class="cert-description">Gestión de Inocuidad</p>
+							</div>
+
+							<div class="certification-item" data-float data-delay="100">
+								<div class="cert-icon">
+									<img src="/assets/img/certificaciones/invima.webp" alt="Concepto favorable INVIMA" width="120" height="210" loading="lazy">
+								</div>
+<!--								<h3 class="cert-title">INVIMA</h3>-->
+								<p class="cert-description">Apto contacto alimentos</p>
+							</div>
+
+							<div class="certification-item" data-float data-delay="200">
+								<div class="cert-icon">
+									<img src="/assets/img/certificaciones/icipc.webp" alt="Certificación ICIPC" width="120" height="210" loading="lazy">
+								</div>
+<!--								<h3 class="cert-title">ICIPC</h3>-->
+								<p class="cert-description">Material Reciclado</p>
+							</div>
+
+						</div>
+
+						<!-- Indicador de scroll -->
+						<div class="scroll-indicator" aria-hidden="true">
+							<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+								<path d="M9 18l6-6-6-6"/>
+							</svg>
+						</div>
+					</div>
+				</div>
+
+				<div class="trust-cta text-center">
+					<a href="sgi.html" class="btn btn-secondary btn-m">
+						Ver nuestro Sistema de Gestión Integrado
+					</a>
+				</div>
+			</div>
+		</section>
+
+<style>
+#certificaciones {
+    background: var(--color-gray-bg);
+    padding: var(--space-7) 0;
+}
+
+#certificaciones .certifications-block, #certificaciones .certifications-scroll-wrapper, #certificaciones .certifications-grid {
+    width: 100%;
+    max-width: none;
+}
+
+#certificaciones .certifications-scroll-wrapper {
+    display: block;
+    overflow: visible;
+}
+
+#certificaciones .certifications-grid {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: var(--space-6);
+    align-items: stretch;
+    justify-items: stretch;
+}
+
+#certificaciones .certification-item {
+    background: var(--color-white);
+    border-radius: var(--radius-large);
+    box-shadow: var(--shadow-base);
+    padding: var(--space-5) var(--space-4);
+    text-align: center;
+}
+
+#certificaciones .cert-icon {
+    height: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--space-3);
+}
+
+#certificaciones .cert-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    max-width: 130px;
+    max-height: 220px;
+    filter: grayscale(100%);
+}
+
+@media (hover: hover) and (pointer: fine) {#certificaciones .cert-icon img { filter: grayscale(100%); }
+#certificaciones .certification-item:hover .cert-icon img { filter: grayscale(0%); }
+}
+
+#certificaciones .cert-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--color-black);
+    line-height: 1.3;
+    min-height: 38px;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#certificaciones .cert-description {
+    font-size: 13px;
+    color: var(--color-gray);
+    line-height: 1.4;
+    min-height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#certificaciones .scroll-indicator {
+    display: none;
+}
+
+.trust-cta {
+    margin-top: var(--space-6);
+}
+
+@media (min-width: 1200px) {.certifications-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: var(--space-5);
+        max-width: 1100px;
+    }
+
+}
+
+@media (prefers-reduced-motion: reduce) {[data-float] {
+        animation: none !important;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {#certificaciones .certifications-scroll-wrapper {
+        overflow: visible;
+        padding-bottom: 0;
+    }
+#certificaciones .certifications-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: var(--space-5);
+    }
+#certificaciones .certification-item {
+        padding: var(--space-4) var(--space-3);
+    }
+#certificaciones .cert-icon { height: 190px; }
+#certificaciones .cert-icon img {
+        max-width: 120px;
+        max-height: 190px;
+    }
+#certificaciones .cert-title {
+        font-size: 14px;
+        min-height: 36px;
+    }
+#certificaciones .cert-description {
+        font-size: 12px;
+        min-height: 32px;
+    }
+#certificaciones .scroll-indicator { display: none; }
+#certificaciones .cert-icon img {
+        filter: none !important;
+    }
+
+}
+
+@media (min-width: 1024px) and (max-width: 1199px) and (orientation: landscape) {#certificaciones .certifications-grid {
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+        gap: var(--space-4);
+    }
+#certificaciones .certification-item {
+        padding: var(--space-4) var(--space-3);
+    }
+#certificaciones .cert-icon { height: 200px; }
+#certificaciones .cert-icon img {
+        max-width: 120px;
+        max-height: 200px;
+    }
+#certificaciones .cert-title {
+        font-size: 14px;
+        min-height: 36px;
+    }
+#certificaciones .cert-description {
+        font-size: 12px;
+        min-height: 32px;
+    }
+}
+
+@media (max-width: 767px) {#certificaciones .certifications-scroll-wrapper {
+        overflow: visible;
+        padding-bottom: 0;
+    }
+#certificaciones .certifications-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: var(--space-4);
+    }
+#certificaciones .certification-item { padding: 16px 12px; }
+#certificaciones .cert-icon { height: 150px; }
+#certificaciones .cert-description { min-height: 0; }
+#certificaciones .cert-icon img {
+        max-width: 110px;
+        max-height: 170px;
+    }
+#certificaciones .cert-title {
+        font-size: 13px;
+        min-height: 34px;
+    }
+#certificaciones .cert-description {
+        font-size: 12px;
+        min-height: 30px;
+    }
+#certificaciones .scroll-indicator { display: none; }
+#certificaciones .cert-icon img {
+        filter: none !important;
+    }
+
+}
+
+@media (max-width: 360px) {#certificaciones .certifications-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+@media (min-width: 361px) and (max-width: 479px) {#certificaciones .certifications-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: var(--space-4);
+    }
+
+}
+@media (max-width: 767px) {
+    .trust-section { padding: 48px 0; }
+}
+</style>

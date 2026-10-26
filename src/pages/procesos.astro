@@ -1,0 +1,896 @@
+---
+import ProcesosLegacyHero from '../components/procesos/ProcesosLegacyHero.astro';
+import ProcesosSection1 from '../components/procesos/ProcesosSection1.astro';
+import ProcesosSection2 from '../components/procesos/ProcesosSection2.astro';
+import ProcesosSection3 from '../components/procesos/ProcesosSection3.astro';
+import ProcesosSection4 from '../components/procesos/ProcesosSection4.astro';
+import ProcesosSection5 from '../components/procesos/ProcesosSection5.astro';
+import ProcesosSection6 from '../components/procesos/ProcesosSection6.astro';
+import SiteLayout from '../layouts/SiteLayout.astro';
+
+const pageTitle = 'Procesos | Herbeplast';
+const pageDescription = 'Procesos de Herbeplast: extrusión, coextrusión, impresión flexográfica, laminado, sellado y conversiones con control de calidad.';
+---
+
+<SiteLayout
+	title={pageTitle}
+	description={pageDescription}
+	currentPage="procesos"
+	headerContactHref="https://wa.me/573106979630?text=Hola,%20quisiera%20informaci%C3%B3n%20sobre%20los%20procesos"
+	whatsappHref="https://wa.me/573106979630?text=Hola,%20quiero%20informaci%C3%B3n%20sobre%20procesos"
+>
+	<main id="main">
+		<ProcesosSection1 />
+		<ProcesosSection2 />
+		<ProcesosLegacyHero />
+		<ProcesosSection3 />
+		<ProcesosSection4 />
+		<ProcesosSection5 />
+		<ProcesosSection6 />
+	</main>
+	<script src="../scripts/site.js"></script>
+</SiteLayout>
+
+<style is:global>
+/* Procesos page styles */
+
+/* Hero */
+.hero-proc { position: relative; overflow: hidden; background: #f8fafc; padding: clamp(18px,4vw,28px) 0 clamp(14px,3vw,22px); }
+.hero-bg { position: absolute; inset: 0; pointer-events: none; }
+.hero-bg .blob { position: absolute; width: 52vw; height: 52vw; max-width: 820px; max-height: 820px; filter: blur(32px); opacity: .35; border-radius: 50%; }
+.hero-bg .b1 { left: -12vw; top: -10vw; background: radial-gradient(closest-side, rgba(30,144,255,.35), transparent 60%); animation: float 14s ease-in-out infinite; }
+.hero-bg .b2 { right: -10vw; bottom: -14vw; background: radial-gradient(closest-side, rgba(42,214,160,.35), transparent 60%); animation: float2 16s ease-in-out infinite; }
+@keyframes float { 0%,100% { transform: translateY(0) } 50% { transform: translateY(12px) } }
+@keyframes float2 { 0%,100% { transform: translateY(0) } 50% { transform: translateY(-14px) } }
+
+.hero-grid { display: grid; grid-template-columns: minmax(0,1.05fr) minmax(0,.95fr); align-items: center; gap: clamp(16px,3vw,32px); }
+.hero-title { font-size: clamp(26px,3.6vw,38px); line-height: 1.12; margin: 0 0 8px; }
+.hero-sub { color: #4b5563; margin: 0; }
+.hero-card { backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); background: rgba(255,255,255,.6); border: 1px solid rgba(0,0,0,.06); border-radius: 16px; padding: clamp(12px,2.2vw,20px); }
+.hero-chips { display: flex; gap: 8px; flex-wrap: wrap; padding: 0; margin: 10px 0 0; list-style: none; }
+.hero-chips li { font-weight: 600; font-size: 12px; letter-spacing: .25px; color: #065f46; background: linear-gradient(135deg, rgba(42,214,160,.18), rgba(30,144,255,.12)); border: 1px solid rgba(6,95,70,.12); border-radius: 999px; padding: 6px 10px; }
+.hero-visual { position: relative; min-height: clamp(160px,22vw,240px); }
+.hero-visual::before{ content:""; position:absolute; right:0; top:-12%; bottom:-22%; width:100%; background: linear-gradient(160deg, rgba(30,144,255,.16), rgba(42,214,160,.16)); backdrop-filter: blur(1px); -webkit-backdrop-filter: blur(1px); clip-path: polygon(14% 0%, 100% 0%, 100% 100%, 0% 100%); border-radius: 24px 0 0 24px; }
+.hero-blob { width: 100%; height: auto; max-width: 520px; display: block; margin: 0 auto; position: relative; z-index: 1; filter: drop-shadow(0 10px 20px rgba(0,0,0,.08)); }
+.hero-rings { position: absolute; inset: auto 0 0 0; height: 40%; background: radial-gradient(closest-side, rgba(0,0,0,.06), transparent 65%); mask-image: radial-gradient(60% 60% at 50% 100%, #000 0%, transparent 70%); pointer-events: none; }
+@media (max-width: 992px){ .hero-grid { grid-template-columns: 1fr; } .hero-visual{ order:-1; min-height:170px; } }
+@media (min-width: 1600px){ .hero-visual{ min-height: 280px; } .hero-visual::before{ top:-14%; bottom:-20%; } }
+
+/* Líneas */
+.proc-lines { padding: 52px 0; }
+.section-head { margin-bottom: 18px; }
+.lines-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 16px; }
+@media (max-width: 1024px){ .lines-grid { grid-template-columns: repeat(2, minmax(0,1fr)); } }
+@media (max-width: 640px){ .lines-grid { grid-template-columns: 1fr; } }
+.line-card { display: block; background: #fff; border: 1px solid #e5e7eb; border-radius: 14px; padding: 16px; text-decoration: none; color: inherit; box-shadow: 0 6px 18px rgba(0,0,0,.04); transition: transform .2s ease, box-shadow .2s ease; }
+.line-card:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(0,0,0,.06); }
+.line-icon { width: 44px; height: 44px; display:grid; place-items:center; border-radius: 10px; color:#065f46; background: linear-gradient(135deg, rgba(42,214,160,.16), rgba(30,144,255,.12)); margin-bottom: 8px; }
+.line-title { margin: 0 0 4px; font-size: 16px; font-weight: 700; }
+.line-desc { margin: 0; color: #4b5563; }
+
+/* Detalles */
+.proc-details { padding: 52px 0; background: linear-gradient(180deg, rgba(0,0,0,.02), transparent 60%); }
+.detail-card { background: #fff; border: 1px solid #e5e7eb; border-radius: 14px; padding: 16px; box-shadow: 0 6px 18px rgba(0,0,0,.04); margin-top: 14px; }
+.detail-head { display:flex; align-items:center; gap:10px; margin-bottom: 8px; }
+.detail-head .icon { width: 36px; height: 36px; display:grid; place-items:center; border-radius: 8px; color:#1e3a8a; background: linear-gradient(135deg, rgba(30,144,255,.16), rgba(42,214,160,.12)); }
+.detail-card p { margin: 0 0 6px; color: #374151; }
+.bullets { margin: 6px 0 0 18px; color:#374151; }
+.bullets li { margin: 6px 0; line-height: 1.45; }
+
+/* Calidad */
+.proc-quality { padding: 52px 0; }
+.quality-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 16px; align-items: center; }
+@media (max-width: 900px){ .quality-grid { grid-template-columns: 1fr; } }
+.quality-visual { display: grid; gap: 10px; }
+.qcard { display:flex; align-items:center; gap:10px; background:#fff; border:1px solid #e5e7eb; border-radius:12px; padding:12px; box-shadow:0 6px 18px rgba(0,0,0,.04); }
+.qicon { width:44px; height:44px; display:grid; place-items:center; border-radius:10px; background:linear-gradient(135deg, rgba(30,144,255,.14), rgba(42,214,160,.12)); color:#0b3b2e; }
+.qtext { display:flex; flex-direction:column; }
+.qtext strong { line-height:1.1; }
+.qtext span { color:#4b5563; font-size:12px; }
+
+/* CTA */
+.proc-cta { padding: 48px 0; }
+.proc-cta-grid { display:grid; grid-template-columns: 1.2fr .8fr; gap: 16px; align-items:center; background: linear-gradient(135deg, rgba(42,214,160,.06), rgba(30,144,255,.06)); border:1px solid #e5e7eb; border-radius:16px; padding:18px; }
+@media (max-width: 900px){ .proc-cta-grid { grid-template-columns: 1fr; } }
+.proc-cta-title { margin:0 0 6px; }
+.proc-cta-subtitle { margin:0; color:#4b5563; }
+.proc-cta-actions { display:flex; gap:10px; justify-content:flex-end; flex-wrap:wrap; }
+@media (max-width: 900px){ .proc-cta-actions { justify-content:flex-start; } }
+/* Hero interno estándar (reutiliza patrón de productos) */
+.hero-internal {
+    position: relative;
+    width: 100%;
+    height: 50vh;
+    min-height: 400px;
+    max-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin-top: 72px; /* altura del header */
+}
+.hero-internal-background { position: absolute; inset: 0; z-index: 0; }
+.hero-internal-image { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+.hero-internal-overlay { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(0,130,194,0.85) 0%, rgba(0,155,168,0.75) 100%); z-index: 1; }
+.hero-internal-content { position: relative; z-index: 2; width: 100%; padding: var(--space-6) 0; }
+.breadcrumb { margin-bottom: var(--space-4); }
+.breadcrumb ol { display:flex; flex-wrap:wrap; align-items:center; gap: var(--space-2); font-size:14px; color: rgba(255,255,255,0.9); }
+.breadcrumb li { display:flex; align-items:center; gap: var(--space-2); }
+.breadcrumb li:not(:last-child)::after { content:'/'; opacity:.6; }
+.breadcrumb a { color: rgba(255,255,255,0.9); text-decoration: underline; text-decoration-thickness:1px; text-underline-offset:2px; transition: opacity var(--duration-normal) ease; }
+.breadcrumb a:hover { opacity:.8; }
+.breadcrumb li[aria-current="page"] { font-weight:600; color: var(--color-white); }
+.hero-internal-title { font-size: 36px; font-weight: 800; color: var(--color-white); margin-bottom: var(--space-3); line-height: 1.2; }
+.hero-internal-subtitle { font-size: var(--font-body-l); color: rgba(255,255,255,0.95); max-width: 700px; line-height: 1.5; }
+/* Page Header (Aurora Flow) */
+/* Wrapper para contener la imagen dentro del container con efecto empotrado */
+.page-header-image {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 5; /* Por encima de las auroras */
+    display: flex;
+    justify-content: flex-end;
+    pointer-events: none;
+}
+.page-header-image img {
+    width: 50%;
+    max-width: calc((1200px * 0.50));
+    height: 100%;
+    object-fit: cover;
+    margin-right: calc((100vw - 1200px) / 2);
+    border-radius: 12px 0 0 12px; /* Solo redondeo en el lado izquierdo */
+
+    /* Sombra interna para efecto empotrado en los lados */
+    box-shadow:
+            inset 3px 0 12px rgba(0,0,0,.35),
+            inset 8px 0 20px rgba(0,0,0,.2),
+            inset -2px 0 8px rgba(0,0,0,.15),
+            -2px 0 8px rgba(0,0,0,.3);
+
+    /* Borde sutil para definir los bordes laterales */
+    border-left: 2px solid rgba(255,255,255,.15);
+    border-right: 2px solid rgba(0,0,0,.2);
+
+    position: relative;
+}
+
+/* En pantallas menores al container, ocupa el 30% */
+@media (max-width: 1240px) {
+    .page-header-image img {
+        margin-right: 20px;
+    }
+}
+.page-header-aurora { position: absolute; left: 30%; top: 0; right: 0; height: 100%; overflow: hidden; z-index: 2; }
+.aurora-layer { position: absolute; width: 200%; height: 200%; opacity: .6; mix-blend-mode: screen; filter: blur(60px); }
+.aurora-layer-1 { background: radial-gradient(circle at 30% 50%, #0082C2 0%, transparent 50%); animation: aurora-flow-1 12s ease-in-out infinite; }
+.aurora-layer-2 { background: radial-gradient(circle at 70% 30%, #009BA8 0%, transparent 50%); animation: aurora-flow-2 15s ease-in-out infinite; }
+.aurora-layer-3 { background: radial-gradient(circle at 50% 70%, #00C2B8 0%, transparent 50%); animation: aurora-flow-3 18s ease-in-out infinite; }
+@keyframes aurora-flow-1 { 0%,100%{ transform: translate(-20%,-20%) scale(1);} 50%{ transform: translate(10%,10%) scale(1.1);} }
+@keyframes aurora-flow-2 { 0%,100%{ transform: translate(10%,10%) scale(1);} 50%{ transform: translate(-20%,-10%) scale(1.15);} }
+@keyframes aurora-flow-3 { 0%,100%{ transform: translate(0%,15%) scale(1);} 50%{ transform: translate(15%,-15%) scale(1.1);} }
+.page-header-particles { position: absolute; inset: 0; pointer-events: none; z-index: 3; }
+.particle { position: absolute; width: 4px; height: 4px; background: rgba(255,255,255,.6); border-radius: 50%; animation: particle-float 8s ease-in-out infinite; }
+.particle:nth-child(1){ left:35%; top:20%; animation-delay:0s; animation-duration:6s; }
+.particle:nth-child(2){ left:50%; top:60%; animation-delay:1s; animation-duration:8s; }
+.particle:nth-child(3){ left:70%; top:30%; animation-delay:2s; animation-duration:7s; }
+.particle:nth-child(4){ left:85%; top:70%; animation-delay:1.5s; animation-duration:9s; }
+.particle:nth-child(5){ left:60%; top:80%; animation-delay:.5s; animation-duration:7.5s; }
+@keyframes particle-float { 0%,100%{ transform: translate(0,0); opacity:0;} 10%{opacity:1;} 90%{opacity:1;} 100%{ transform: translate(10px,-30px); opacity:0;} }
+.page-header-content { position: relative; z-index: 4; color: var(--color-white); }
+.page-breadcrumb { margin-bottom: 12px; }
+.page-breadcrumb ol { display:flex; align-items:center; gap:8px; font-size:13px; font-weight:500; }
+.page-breadcrumb li { display:flex; align-items:center; gap:8px; color: rgba(255,255,255,.85); }
+.page-breadcrumb li:not(:last-child)::after { content: ">"; font-size: 14px; opacity:.6; }
+.page-breadcrumb a { color: rgba(255,255,255,.85); text-decoration:none; transition: color 200ms ease; position: relative; }
+.page-breadcrumb a::after { content:""; position:absolute; bottom:-2px; left:0; width:0; height:1px; background: rgba(255,255,255,.9); transition: width 200ms ease; }
+.page-breadcrumb a:hover { color:#fff; }
+.page-breadcrumb a:hover::after { width:100%; }
+.page-breadcrumb li[aria-current="page"] { color:#fff; font-weight:600; }
+.page-header-title { font-size: 42px; font-weight: 800; color: #fff; margin-bottom: 8px; line-height: 1.1; letter-spacing: -0.5px; text-shadow: 0 2px 20px rgba(0,0,0,.15); animation: title-glow 3s ease-in-out infinite; }
+@keyframes title-glow { 0%,100%{ text-shadow:0 2px 20px rgba(0,0,0,.15);} 50%{ text-shadow:0 2px 30px rgba(255,255,255,.2);} }
+.page-header-subtitle { font-size: 16px; font-weight: 500; color: rgba(255,255,255,.9); letter-spacing: .5px; text-transform: uppercase; }
+.page-header-lines { position:absolute; inset:0; pointer-events:none; z-index:3; opacity:.3; }
+.deco-line { position:absolute; background: linear-gradient(90deg, transparent, rgba(255,255,255,.4), transparent); height:1px; }
+.deco-line-1 { top:30%; left:30%; right:0; animation: line-expand 4s ease-in-out infinite; }
+.deco-line-2 { bottom:35%; left:35%; right:0; animation: line-expand 4s ease-in-out infinite 2s; }
+@keyframes line-expand { 0%,100%{ transform: scaleX(.8); opacity:.2;} 50%{ transform: scaleX(1); opacity:.4;} }
+
+/* ============================================
+   HERBEPLAST — TABLET / iPad
+   tablet.css (Archivo 3 de 3)
+   Este archivo contiene ÚNICAMENTE quiebres de tablet.
+   - Base/desktop vive en styles.css
+   - Mobile vive en mobile.css
+
+   Qué corregí vs tu versión:
+   1) Eliminé @media anidados (CSS plano NO soporta @media dentro de @media).
+      -> Esto es un error grave: el navegador puede ignorar reglas o aplicarlas de forma inconsistente.
+   2) Reorganicé los quiebres para que sean claros:
+      A) 768–1023  : Tablet (portrait típico)
+      B) 1024–1199 : Tablet large / small desktop (incluye iPad Pro portrait)
+      C) 1024–1199 landscape: Ajustes finos opcionales cuando hay mucho ancho pero poco alto.
+   3) Aislamiento de CERTIFICACIONES:
+      -> Todo lo de certificaciones va bajo #certificaciones para evitar “sangrados”.
+
+   Nota:
+   - NO agrego estilos “generales” fuera de @media (como pediste).
+   ============================================ */
+
+
+/* ============================================
+   A) TABLET (768px - 1023px)
+   - iPad portrait típico / tablets medianas
+   - Ajusta tipografía, hero/video, carrusel y layout de valor.
+   - Certificaciones: 3 columnas x 2 filas (6 items)
+   ============================================ */
+@media (min-width: 768px) and (max-width: 1023px) {
+    :root {
+        --container-padding: 1.5rem;
+        /* Altura disponible en tablet descontando header (72px) */
+        --vh-available-tablet: calc(100dvh - 72px);
+    }
+
+    /* Tipografía */
+    h1 { font-size: 40px; }
+    h2 { font-size: 32px; }
+    h3 { font-size: 24px; }
+    .section-title { font-size: 36px; }
+
+    /* ===== HERO (≈70% del alto disponible) ===== */
+    section#hero.hero {
+        height: calc(var(--vh-available-tablet) * 0.7);
+        min-height: 0;       /* anula mínimos previos */
+        max-height: none;
+        padding-bottom: 0;   /* evita sumar altura extra */
+    }
+
+    .hero { min-height: 0; }
+
+    .hero-overlay {
+        background: linear-gradient(
+                to bottom,
+                rgba(0, 130, 194, 0.25) 0%,
+                rgba(0, 130, 194, 0.45) 50%,
+                rgba(0, 130, 194, 0.75) 80%,
+                rgba(0, 130, 194, 0.9) 100%
+        );
+    }
+
+    .hero-title { font-size: 44px; }
+    .hero-subtitle { font-size: 18px; }
+    .hero-scroll-indicator { bottom: var(--space-5); }
+
+    .hero-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    /* ===== VIDEO (≈30% del alto disponible) ===== */
+    .video-section {
+        height: calc(var(--vh-available-tablet) * 0.3);
+        min-height: 0;
+        background: var(--color-black);
+        overflow: hidden;
+    }
+
+    /* Con altura fija basada en viewport, NO usar aspect-ratio aquí */
+    .video-container {
+        width: 100%;
+        height: 100%;
+        aspect-ratio: auto;
+    }
+
+    .institutional-video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* llenar sin franjas */
+        background: var(--color-black);
+    }
+
+    /* ===== CARRUSEL (tablet) ===== */
+    .carousel-wrapper { padding: 0 56px; } /* espacio para flechas */
+    .carousel-card { flex: 0 0 calc(48% - var(--space-2)); }
+    .carousel-control {
+        display: flex;
+        width: 44px;
+        height: 44px;
+    }
+
+    /* ===== VALOR (2 columnas) ===== */
+    .valor-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-8);
+        align-items: center;
+    }
+
+    /* ===== CERTIFICACIONES (Tablet vertical) =====
+       - 6 items => 3 columnas x 2 filas
+       - Sin scroll (hereda desktop “sin scroll” y lo reafirmamos)
+       - Ajuste de tamaños para que se vea “tablet”, no “mobile agrandado”
+    */
+
+
+
+    #certificaciones .certifications-scroll-wrapper {
+        overflow: visible;
+        padding-bottom: 0;
+    }
+
+    #certificaciones .certifications-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: var(--space-5);
+    }
+
+    #certificaciones .certification-item {
+        padding: var(--space-4) var(--space-3);
+    }
+
+    #certificaciones .cert-icon { height: 190px; }
+
+    #certificaciones .cert-icon img {
+        max-width: 120px;
+        max-height: 190px;
+    }
+
+    #certificaciones .cert-title {
+        font-size: 14px;
+        min-height: 36px;
+    }
+
+    #certificaciones .cert-description {
+        font-size: 12px;
+        min-height: 32px;
+    }
+
+    #certificaciones .scroll-indicator { display: none; }
+
+    /* ===== CLIENTES (si activas ese bloque) ===== */
+    .clients-logos { grid-template-columns: repeat(3, 1fr); }
+
+    /* ===== FOOTER ===== */
+    .footer-grid { grid-template-columns: repeat(2, 1fr); }
+
+    /* ===== WHATSAPP ===== */
+    .whatsapp-float {
+        width: 60px;
+        height: 60px;
+        bottom: var(--space-5);
+        right: var(--space-5);
+    }
+
+    /* Nota: Si NO quieres animaciones en tablet, mueve esto a styles.css y controla allí.
+       Lo dejo igual para no romper tu diseño existente. */
+    .page-header-title {
+        font-size: 26px;
+        font-weight: 800;
+        color: #fff;
+        margin-bottom: 8px;
+        line-height: 1.1;
+        letter-spacing: -0.5px;
+        text-shadow: 0 2px 20px rgba(0,0,0,.15);
+        animation: title-glow 3s ease-in-out infinite;
+    }
+
+    .page-header-subtitle {
+        font-size: 12px;
+        font-weight: 500;
+        color: rgba(255,255,255,.9);
+        letter-spacing: 1px;
+        text-transform: uppercase;
+    }
+
+    /* Tablet: siempre color (no hay hover confiable) */
+    #certificaciones .cert-icon img {
+        filter: none !important;
+    }
+
+}
+
+
+/* ============================================
+   B) TABLET-LARGE / SMALL DESKTOP (1024px - 1199px)
+   - Incluye iPad Pro en portrait (1024px)
+   - Mantiene tu lógica: HERO 70% + VIDEO 30%
+   ============================================ */
+@media (min-width: 1024px) and (max-width: 1199px) {
+    :root { --vh-available-tlarge: calc(100dvh - 72px); }
+
+    /* HERO ≈70% */
+    section#hero.hero {
+        height: calc(var(--vh-available-tlarge) * 0.7);
+        min-height: 0;
+        max-height: none;
+        padding-bottom: 0;
+    }
+
+    .hero { min-height: 0; }
+
+    .hero-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    /* VIDEO ≈30% */
+    .video-section {
+        height: calc(var(--vh-available-tlarge) * 0.3);
+        min-height: 0;
+        background: var(--color-black);
+        overflow: hidden;
+    }
+
+    .video-container {
+        width: 100%;
+        height: 100%;
+        aspect-ratio: auto;
+    }
+
+    .institutional-video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    /* Page headers (tal cual los tenías) */
+    .page-header-title {
+        font-size: 36px;
+        font-weight: 800;
+        color: #fff;
+        margin-bottom: 8px;
+        line-height: 1.1;
+        letter-spacing: -0.5px;
+        text-shadow: 0 2px 20px rgba(0,0,0,.15);
+        animation: title-glow 3s ease-in-out infinite;
+    }
+
+    .page-header-subtitle {
+        font-size: 14px;
+        font-weight: 500;
+        color: rgba(255,255,255,.9);
+        letter-spacing: 1px;
+        text-transform: uppercase;
+    }
+}
+
+
+/* ============================================
+   C) AJUSTES OPCIONALES — 1024px-1199px en LANDSCAPE
+   - NO anidado (corrección del error grave)
+   - Dos ajustes:
+     1) Más video / menos hero (como ya lo tenías)
+     2) Certificaciones: mantener 6 en una fila pero compactar gap/padding
+   ============================================ */
+@media (min-width: 1024px) and (max-width: 1199px) and (orientation: landscape) {
+    /* (Opcional) Más espacio al video en landscape */
+    section#hero.hero { height: calc(var(--vh-available-tlarge) * 0.6); }
+    .video-section { height: calc(var(--vh-available-tlarge) * 0.4); }
+
+    /* CERTIFICACIONES — Tablet horizontal “apretado” */
+    #certificaciones .certifications-grid {
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+        gap: var(--space-4);
+    }
+
+    #certificaciones .certification-item {
+        padding: var(--space-4) var(--space-3);
+    }
+
+    #certificaciones .cert-icon { height: 200px; }
+
+    #certificaciones .cert-icon img {
+        max-width: 120px;
+        max-height: 200px;
+    }
+
+    #certificaciones .cert-title {
+        font-size: 14px;
+        min-height: 36px;
+    }
+
+    #certificaciones .cert-description {
+        font-size: 12px;
+        min-height: 32px;
+    }
+}
+
+
+/* ============================================
+   HERBEPLAST — MOBILE / iPhone
+   mobile.css (Archivo 2 de 3)
+   Este archivo contiene ÚNICAMENTE quiebres móviles.
+   - Base/desktop vive en styles.css
+   - Tablet vive en tablet.css
+
+   Qué corregí vs tu versión:
+   1) Eliminé @media anidado (tenías @media (max-width: 360px) dentro de @media (max-width: 767px)).
+      -> En CSS plano eso no es válido; puede ignorarse y causar inconsistencias.
+   2) Scope de CERTIFICACIONES:
+      -> uso #certificaciones delante de todo para evitar que afecte otras secciones.
+   3) Mantengo tus decisiones de layout, solo ordeno y corrijo lo estructural.
+
+   Nota:
+   - NO agrego estilos “generales” fuera de @media (como pediste).
+   ============================================ */
+
+
+/* ============================================
+   MOBILE (max 767px)
+   - Ajustes de hero/video, navegación, secciones y carrusel.
+   - Certificaciones: 2 columnas (6 items => 2x3)
+   ============================================ */
+
+@media (max-width: 767px) {
+    :root {
+        /* Altura disponible en móvil descontando el header (72px) */
+        --vh-available: calc(100dvh - 72px);
+    }
+
+    /* ===== HERO (≈70% del alto disponible) ===== */
+    section#hero.hero {
+        height: calc(var(--vh-available) * 0.7);
+        min-height: 0;      /* anula mínimos previos */
+        max-height: 420px;
+        padding-bottom: 0;  /* evita sumar altura extra en iOS */
+    }
+
+    section#hero.hero .hero-content {
+        padding-top: 24px;
+        padding-bottom: 24px;
+    }
+
+    .hero-title {
+        font-size: 26px;
+        line-height: 1.2;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 360px;
+    }
+
+    .hero-subtitle {
+        font-size: 15px;
+        line-height: 1.5;
+        text-align: center;
+        max-width: 360px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-cta { justify-content: center; }
+    .hero-scroll-indicator { bottom: 16px; }
+
+    .hero-overlay {
+        background: linear-gradient(
+                to bottom,
+                rgba(0, 130, 194, 0.9) 0%,
+                rgba(0, 130, 194, 0.7) 40%,
+                rgba(0, 130, 194, 0.4) 70%,
+                rgba(0, 155, 168, 0.3) 100%
+        );
+    }
+
+    .hero-aurora {
+        opacity: 0.25 !important;
+        filter: blur(60px);
+        animation-duration: 20s;
+    }
+
+    /* ===== VIDEO (≈30% del alto disponible) ===== */
+    .video-section {
+        height: calc(var(--vh-available) * 0.3);
+        min-height: 0;
+        background: var(--color-black);
+        overflow: hidden;
+    }
+
+    .video-container {
+        width: 100%;
+        height: 100%;
+        aspect-ratio: auto; /* anula el aspect-ratio global si existiera */
+    }
+
+    .institutional-video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        background: var(--color-black);
+    }
+
+    .video-gradient-overlay { display: block; }
+
+    /* ===== HEADER Y NAV EN MÓVIL ===== */
+    .header { height: 64px; }
+    .header-content { height: 64px; }
+    .header-logo img { height: 40px; }
+
+    .header-nav { display: none; }
+    .header-cta { display: none; }
+    .menu-toggle { display: flex; }
+
+    /* ===== SECCIONES GENERALES ===== */
+    .sectores-section,
+    .valor-section,
+    .trust-section,
+    .cta-final-section {
+        padding: 48px 0;
+    }
+
+    .section-title {
+        font-size: 22px;
+        text-align: center;
+    }
+
+    .section-subtitle {
+        font-size: 15px;
+        text-align: center;
+    }
+
+    /* ===== CARRUSEL EN MÓVIL ===== */
+    .carousel-wrapper { padding: 0 16px; }
+    .carousel-track { gap: 16px; }
+
+    .carousel-card {
+        flex: 0 0 88%;
+        max-width: 88%;
+    }
+
+    .carousel-control { display: none; }
+
+    .carousel-dots {
+        margin-top: 24px;
+        gap: 8px;
+    }
+
+    .carousel-dot { width: 6px; height: 6px; }
+    .carousel-dot.active { width: 24px; }
+
+    .card-image-wrapper { aspect-ratio: 16 / 10; }
+
+    .card-content { padding: 16px 16px 20px; }
+
+    .card-title {
+        font-size: 18px;
+        margin-bottom: 8px;
+    }
+
+    .card-subtitle {
+        font-size: 14px;
+        margin-bottom: 12px;
+    }
+
+    .card-bullets { margin-bottom: 12px; }
+    .card-bullets li { font-size: 13px; }
+
+    .card-cta { font-size: 13px; }
+
+    /* ===== VALOR SECTION EN MÓVIL ===== */
+    .valor-grid { gap: 24px; }
+    .valor-paragraph { font-size: 15px; }
+
+    .valor-list {
+        padding-left: 20px;
+        margin-bottom: 20px;
+    }
+
+    .valor-list li {
+        font-size: 14px;
+        margin-bottom: 8px;
+    }
+
+    /* ===== CERTIFICACIONES EN MÓVIL =====
+       - 2 columnas x 3 filas
+       - Sin scroll
+       - Selectores scopeados a #certificaciones para evitar efectos colaterales
+    */
+    #certificaciones .certifications-scroll-wrapper {
+        overflow: visible;
+        padding-bottom: 0;
+    }
+
+    #certificaciones .certifications-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: var(--space-4);
+    }
+
+    #certificaciones .certification-item { padding: 16px 12px; }
+
+    #certificaciones .cert-icon { height: 150px; }
+    #certificaciones .cert-description { min-height: 0; }
+
+    #certificaciones .cert-icon img {
+        max-width: 110px;
+        max-height: 170px;
+    }
+
+    #certificaciones .cert-title {
+        font-size: 13px;
+        min-height: 34px;
+    }
+
+    #certificaciones .cert-description {
+        font-size: 12px;
+        min-height: 30px;
+    }
+
+    #certificaciones .scroll-indicator { display: none; }
+
+    /* ===== CLIENTES (si activas ese bloque) ===== */
+    .clients-logos {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        margin-bottom: 20px;
+    }
+
+    .client-logo {
+        padding: 10px;
+        min-height: 60px;
+    }
+
+    .client-logo img {
+        max-width: 80px;
+        max-height: 40px;
+    }
+
+    /* ===== CTA FINAL EN MÓVIL ===== */
+    .cta-final-title { font-size: 22px; }
+    .cta-final-subtitle { font-size: 15px; }
+    .cta-final-note { font-size: 14px; }
+
+    /* ===== FOOTER EN MÓVIL ===== */
+    .footer { padding: 40px 0 24px; }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .footer-title { margin-top: 15px; }
+    .footer-bottom { padding-top: 20px; }
+
+    /* ===== WHATSAPP FLOTANTE EN MÓVIL ===== */
+    .whatsapp-float {
+        width: 52px;
+        height: 52px;
+        bottom: 16px;
+        right: 16px;
+    }
+
+    .whatsapp-tooltip { display: none; }
+
+    /* Nota: hover en mobile no siempre aplica, pero no rompe (y a veces aplica con mouse). */
+    .carousel-card:hover .card-image { transform: scale(1.03); }
+
+    /* Mobile: siempre color */
+    #certificaciones .cert-icon img {
+        filter: none !important;
+    }
+
+    /* ============================================
+   FOOTER — Separadores en MOBILE
+   ============================================ */
+
+
+
+        /* Espacio visual entre columnas */
+        .footer-col {
+            position: relative;
+            padding-bottom: var(--space-1);
+            margin-bottom: var(--space-1);
+        }
+
+        /* Línea separadora */
+        .footer-col::after {
+            content: '';
+            display: block;
+            width: 40px;              /* 👈 corta */
+            height: 2px;              /* 👈 delgada */
+            background: rgba(255, 255, 255, 0.5);
+            margin-top: var(--space-4);
+        }
+
+        /* Quitar separador del último bloque (Legal) */
+        .footer-col:last-child::after {
+            display: none;
+        }
+
+        ul li{
+            font-size: 15px !important;
+            line-height: 14px !important;
+        }
+
+    /* Page Header: permitir que crezca (título + imagen abajo) */
+    .page-header{
+        height: auto;
+        min-height: 0;
+        padding: 22px 0 0;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch; /* importante en columna */
+    }
+
+    /* Reorden: contenido arriba */
+    .page-header .container{ order: 1; }
+
+    /* Decoraciones (opcional: debajo del contenido) */
+    .page-header-lines{ order: 2; }
+
+    /* Imagen al final (abajo del hero) */
+    .page-header-image{
+        order: 3;
+
+        position: relative;   /* mata el absolute de nosotros.css */
+        top: auto;
+        right: auto;
+
+        width: 100%;
+        height: auto;
+        overflow: visible;
+
+        display: block;       /* mata el flex-end */
+        margin-top: 14px;
+        z-index: 4;           /* por encima del aurora si lo necesitas */
+    }
+
+    /* Imagen completa (sin recorte) */
+    .page-header-image img{
+        width: 100%;
+        max-width: 100%;
+        height: auto;         /* clave: completa */
+        object-fit: initial;  /* no recorta */
+
+        margin-right: 0;
+        border-radius: 14px;
+
+        /* mata el efecto empotrado en mobile */
+        box-shadow: 0 10px 26px rgba(0,0,0,.18);
+        border-left: 0;
+        border-right: 0;
+    }
+
+    /* Opcional: que el aurora NO ensucie la foto */
+    .page-header-aurora,
+    .page-header-particles{
+        z-index: 2;
+    }
+
+}
+
+
+/* ============================================
+   MOBILE EXTRA SMALL (max 360px)
+   - Antes estaba anidado (error).
+   - Aquí se aplica correctamente.
+   - Certificaciones: 1 columna para evitar aplastar tarjetas
+   ============================================ */
+@media (max-width: 360px) {
+    #certificaciones .certifications-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+@media (min-width: 361px) and (max-width: 479px) {
+
+    #certificaciones .certifications-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: var(--space-4);
+    }
+
+}
+
+/* (Comentario histórico)
+   Antes tenías un bloque sugerido para 420px/9:16.
+   Lo mantengo comentado por si lo necesitas luego.
+
+@media (max-width: 420px) {
+  .video-container { aspect-ratio: 9 / 16; }
+}
+*/
+
+</style>

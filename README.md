@@ -1,46 +1,32 @@
-# Astro Starter Kit: Basics
+# Herbeplast Astro
 
-```sh
-npm create astro@latest -- --template basics
+Astro migration of the production website in `E:\WebSites\Herbeplast`.
+
+## Local development
+
+```powershell
+npm install
+npm run dev
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Build and preview
 
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
+```powershell
+npm run build
+npm run preview
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+The project builds a static site in `dist/`. The Astro build format is set to
+`file` so migrated pages can keep their existing `.html` URLs.
 
-## 🧞 Commands
+## Migration approach
 
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+- Keep the production checkout unchanged while the Astro version is developed.
+- Migrate one page at a time into `src/pages/` and shared sections into Astro
+  components under `src/components/`.
+- Keep migrated styles in `src/styles/` and interactive browser behavior in
+  imported modules under `src/scripts/`.
+- Keep pages that have not yet migrated in `public/` as temporary static pages,
+  with their existing CSS and JavaScript, preserving working links during the
+  transition.
+- Remove each temporary page from `public/` when its Astro page is ready.

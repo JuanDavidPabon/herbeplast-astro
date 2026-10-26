@@ -1,0 +1,91 @@
+---
+interface Props {
+	currentPage?: string;
+	contactLabel?: string;
+	contactHref?: string;
+}
+
+const {
+	currentPage = '',
+	contactLabel = 'Contactar',
+	contactHref = 'https://wa.me/573106979630?text=Hola,%20quiero%20cotizar%20empaques%20flexibles.%20%C2%BFMe%20ayudas%3F',
+} = Astro.props;
+const links = [
+	{ label: 'Inicio', href: 'index.html', id: 'inicio' },
+	{ label: 'Nosotros', href: 'nosotros.html', id: 'nosotros' },
+	{ label: 'Productos', href: 'productos.html', id: 'productos' },
+	{ label: 'SGI', href: 'sgi.html', id: 'sgi' },
+	{ label: 'Procesos', href: 'procesos.html', id: 'procesos' },
+	{ label: 'Contáctenos', href: 'contacto.html', id: 'contacto' },
+];
+---
+
+<header id="header" class="header" role="banner">
+	<div class="container">
+		<div class="header-content">
+			<div class="header-logo">
+				<a href="index.html" aria-label="Herbeplast - Ir al inicio">
+					<img src="/assets/img/logo/logo-herbeplast.svg" alt="Herbeplast" width="180" height="48" />
+				</a>
+			</div>
+
+			<nav class="header-nav" aria-label="Navegación principal">
+				<ul class="nav-menu">
+					{links.map(({ label, href, id }) => (
+						<li>
+							<a href={href} class={currentPage === id ? 'active' : undefined} aria-current={currentPage === id ? 'page' : undefined}>
+								{label}
+							</a>
+						</li>
+					))}
+				</ul>
+			</nav>
+
+			<div class="header-cta">
+				<a
+					href={contactHref}
+					class="btn btn-secondary btn-m"
+					target="_blank"
+					rel="noopener noreferrer"
+					aria-label="Contactar por WhatsApp"
+				>
+					{contactLabel}
+				</a>
+			</div>
+
+			<button
+				type="button"
+				class="menu-toggle"
+				aria-label="Abrir menú de navegación"
+				aria-expanded="false"
+				aria-controls="mobile-menu"
+			>
+				<span class="menu-toggle-icon"></span>
+			</button>
+		</div>
+	</div>
+
+	<div id="mobile-menu" class="mobile-menu" aria-hidden="true">
+		<div class="mobile-menu-overlay"></div>
+		<div class="mobile-menu-panel">
+			<button class="mobile-menu-close" aria-label="Cerrar menú">
+				<span>&times;</span>
+			</button>
+			<nav aria-label="Navegación móvil">
+				<ul class="mobile-menu-list">
+					{links.map(({ label, href, id }) => (
+						<li>
+							<a
+								href={href}
+								class={currentPage === id ? 'active' : undefined}
+								aria-current={currentPage === id ? 'page' : undefined}
+							>
+								{label}
+							</a>
+						</li>
+					))}
+				</ul>
+			</nav>
+		</div>
+	</div>
+</header>

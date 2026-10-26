@@ -1,0 +1,148 @@
+<section id="video" class="video-section" aria-hidden="true">
+			<div class="video-container">
+				<video
+						class="institutional-video"
+						autoplay
+						muted
+						loop
+						playsinline
+						preload="auto"
+						aria-label="Video de procesos de producción">
+
+					<source src="/assets/video/videoherbeplast.mp4" type="video/mp4">
+
+					<!-- Fallback mínimo -->
+					Tu navegador no soporta el elemento de video.
+				</video>
+			</div>
+		</section>
+
+<style>
+.video-section {
+    position: relative;
+    width: 100%;
+    background: var(--color-black);
+    overflow: hidden;
+
+    /*
+      Altura “bonita” y estable:
+      - 56.25vw = 16:9 basado en ancho (evita que en ultra-wide quede “tira”)
+      - clamp limita: mínimo 320px, ideal 16:9, máximo 70vh
+    */
+    height: clamp(100%, 56.25vw, 70vh);
+    /*height: 100dvh;*/
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.institutional-video {
+    width: 100%;
+    height: 100%;
+    display: block;
+
+    object-fit: contain;   /* ✅ NO recorta, muestra todo */
+    object-position: center;
+
+
+    background: var(--color-black); /* bandas negras si sobran */
+}
+
+.video-section::before, .video-section::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: var(--fade-height);
+    pointer-events: none;
+    z-index: 2;
+}
+
+.video-section::before {
+    top: 0;
+    background: linear-gradient(to bottom, var(--fade-color), transparent);
+}
+
+.video-section::after {
+    bottom: 0;
+    background: linear-gradient(to top, var(--fade-color), transparent);
+}
+
+.video-gradient-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+            180deg,
+            rgba(0, 0, 0, 0.20) 0%,
+            rgba(0, 0, 0, 0.00) 50%,
+            rgba(0, 0, 0, 0.20) 100%
+    );
+    pointer-events: none;
+    z-index: 1;
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {.video-section {
+        height: calc(var(--vh-available-tablet) * 0.3);
+        min-height: 0;
+        background: var(--color-black);
+        overflow: hidden;
+    }
+.video-container {
+        width: 100%;
+        height: 100%;
+        aspect-ratio: auto;
+    }
+.institutional-video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* llenar sin franjas */
+        background: var(--color-black);
+    }
+
+}
+
+@media (min-width: 1024px) and (max-width: 1199px) {.video-section {
+        height: calc(var(--vh-available-tlarge) * 0.3);
+        min-height: 0;
+        background: var(--color-black);
+        overflow: hidden;
+    }
+.video-container {
+        width: 100%;
+        height: 100%;
+        aspect-ratio: auto;
+    }
+.institutional-video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+@media (min-width: 1024px) and (max-width: 1199px) and (orientation: landscape) {.video-section { height: calc(var(--vh-available-tlarge) * 0.4); }
+}
+
+@media (max-width: 767px) {.video-section {
+        height: calc(var(--vh-available) * 0.3);
+        min-height: 0;
+        background: var(--color-black);
+        overflow: hidden;
+    }
+.video-container {
+        width: 100%;
+        height: 100%;
+        aspect-ratio: auto; /* anula el aspect-ratio global si existiera */
+    }
+.institutional-video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        background: var(--color-black);
+    }
+.video-gradient-overlay { display: block; }
+
+}
+</style>

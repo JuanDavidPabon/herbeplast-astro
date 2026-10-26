@@ -1,0 +1,372 @@
+<section class="page-header">
+	<div class="page-header-image">
+		<img
+			src="/assets/img/2025/nosotros01.webp"
+			alt=""
+			loading="eager"
+			decoding="async"
+			fetchpriority="high"
+		/>
+	</div>
+	<div class="page-header-aurora">
+		<div class="aurora-layer aurora-layer-1"></div>
+		<div class="aurora-layer aurora-layer-2"></div>
+		<div class="aurora-layer aurora-layer-3"></div>
+	</div>
+	<div class="page-header-particles">
+		<span class="particle"></span>
+		<span class="particle"></span>
+		<span class="particle"></span>
+		<span class="particle"></span>
+		<span class="particle"></span>
+	</div>
+	<div class="container">
+		<div class="page-header-content">
+			<nav aria-label="Breadcrumb" class="page-breadcrumb">
+				<ol>
+					<li><a href="index.html">Inicio</a></li>
+					<li aria-current="page">Nosotros</li>
+				</ol>
+			</nav>
+			<h1 class="page-header-title">Nosotros</h1>
+			<p class="page-header-subtitle">Calidad, innovación y compromiso desde 1995</p>
+		</div>
+	</div>
+	<div class="page-header-lines">
+		<span class="deco-line deco-line-1"></span>
+		<span class="deco-line deco-line-2"></span>
+	</div>
+</section>
+
+<style>
+.page-header-image {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 5; /* Por encima de las auroras */
+  display: flex;
+  justify-content: flex-end;
+  pointer-events: none;
+}
+
+.page-header-image img {
+  width: 50%;
+  max-width: calc((1200px * 0.50));
+  height: 100%;
+  object-fit: cover;
+  margin-right: calc((100vw - 1200px) / 2);
+  border-radius: 12px 0 0 12px; /* Solo redondeo en el lado izquierdo */
+
+  /* Sombra interna para efecto empotrado en los lados */
+  box-shadow:
+          inset 3px 0 12px rgba(0,0,0,.35),
+          inset 8px 0 20px rgba(0,0,0,.2),
+          inset -2px 0 8px rgba(0,0,0,.15),
+          -2px 0 8px rgba(0,0,0,.3);
+
+  /* Borde sutil para definir los bordes laterales */
+  border-left: 2px solid rgba(255,255,255,.15);
+  border-right: 2px solid rgba(0,0,0,.2);
+
+  position: relative;
+}
+
+@media (max-width: 1240px) {.page-header-image img {
+    margin-right: 20px;
+  }
+}
+
+.page-header-aurora {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  height: 100%;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.aurora-layer {
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  opacity: .6;
+  mix-blend-mode: screen;
+  filter: blur(60px);
+}
+
+.aurora-layer-1 {
+  background: radial-gradient(circle at 30% 50%, #0082C2 0%, transparent 50%);
+  animation: aurora-flow-1 12s ease-in-out infinite;
+}
+
+.aurora-layer-2 {
+  background: radial-gradient(circle at 70% 30%, #009BA8 0%, transparent 50%);
+  animation: aurora-flow-2 15s ease-in-out infinite;
+}
+
+.aurora-layer-3 {
+  background: radial-gradient(circle at 50% 70%, #00C2B8 0%, transparent 50%);
+  animation: aurora-flow-3 18s ease-in-out infinite;
+}
+
+@keyframes aurora-flow-1 {
+  0%,100%{ transform: translate(-20%,-20%) scale(1);}
+  50%{ transform: translate(10%,10%) scale(1.1);}
+}
+
+@keyframes aurora-flow-2 {
+  0%,100%{ transform: translate(10%,10%) scale(1);}
+  50%{ transform: translate(-20%,-10%) scale(1.15);}
+}
+
+@keyframes aurora-flow-3 {
+  0%,100%{ transform: translate(0%,15%) scale(1);}
+  50%{ transform: translate(15%,-15%) scale(1.1);}
+}
+
+.page-header-particles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: rgba(255,255,255,.6);
+  border-radius: 50%;
+  animation: particle-float 8s ease-in-out infinite;
+}
+
+.particle:nth-child(1){ left:35%; top:20%; animation-delay:0s; animation-duration:6s; }
+
+.particle:nth-child(2){ left:50%; top:60%; animation-delay:1s; animation-duration:8s; }
+
+.particle:nth-child(3){ left:70%; top:30%; animation-delay:2s; animation-duration:7s; }
+
+.particle:nth-child(4){ left:85%; top:70%; animation-delay:1.5s; animation-duration:9s; }
+
+.particle:nth-child(5){ left:60%; top:80%; animation-delay:.5s; animation-duration:7.5s; }
+
+@keyframes particle-float {
+  0%,100%{ transform: translate(0,0); opacity:0;}
+  10%{opacity:1;}
+  90%{opacity:1;}
+  100%{ transform: translate(10px,-30px); opacity:0;}
+}
+
+.page-header-content {
+  position: relative;
+  z-index: 4;
+  color: var(--color-white);
+}
+
+.page-breadcrumb {
+  margin-bottom: 12px;
+}
+
+.page-breadcrumb ol {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-size:13px;
+  font-weight:500;
+}
+
+.page-breadcrumb li {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  color: rgba(255,255,255,.85);
+}
+
+.page-breadcrumb li:not(:last-child)::after {
+  content: ">";
+  font-size: 14px;
+  opacity:.6;
+}
+
+.page-breadcrumb a {
+  color: rgba(255,255,255,.85);
+  text-decoration:none;
+  transition: color 200ms ease;
+  position: relative;
+}
+
+.page-breadcrumb a::after {
+  content:"";
+  position:absolute;
+  bottom:-2px;
+  left:0;
+  width:0;
+  height:1px;
+  background: rgba(255,255,255,.9);
+  transition: width 200ms ease;
+}
+
+.page-breadcrumb a:hover {
+  color:#fff;
+}
+
+.page-breadcrumb a:hover::after {
+  width:100%;
+}
+
+.page-breadcrumb li[aria-current="page"] {
+  color:#fff;
+  font-weight:600;
+}
+
+.page-header-title {
+  font-size: 42px;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 8px;
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+  text-shadow: 0 2px 20px rgba(0,0,0,.15);
+  animation: title-glow 3s ease-in-out infinite;
+}
+
+@keyframes title-glow {
+  0%,100%{ text-shadow:0 2px 20px rgba(0,0,0,.15);}
+  50%{ text-shadow:0 2px 30px rgba(255,255,255,.2);}
+}
+
+.page-header-subtitle {
+  font-size: 16px;
+  font-weight: 500;
+  color: rgba(255,255,255,.9);
+  letter-spacing: .5px;
+  text-transform: uppercase;
+}
+
+.page-header-lines {
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  z-index:3;
+  opacity:.3;
+}
+
+.deco-line {
+  position:absolute;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.4), transparent);
+  height:1px;
+}
+
+.deco-line-1 {
+  top:30%;
+  left:30%;
+  right:0;
+  animation: line-expand 4s ease-in-out infinite;
+}
+
+.deco-line-2 {
+  bottom:35%;
+  left:35%;
+  right:0;
+  animation: line-expand 4s ease-in-out infinite 2s;
+}
+
+@media (max-width: 768px) {.page-header {
+    height: 160px;
+  }
+.page-header-title {
+    font-size: 32px;
+  }
+.page-header-subtitle {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {.page-header-title {
+        font-size: 26px;
+        font-weight: 800;
+        color: #fff;
+        margin-bottom: 8px;
+        line-height: 1.1;
+        letter-spacing: -0.5px;
+        text-shadow: 0 2px 20px rgba(0,0,0,.15);
+        animation: title-glow 3s ease-in-out infinite;
+    }
+.page-header-subtitle {
+        font-size: 12px;
+        font-weight: 500;
+        color: rgba(255,255,255,.9);
+        letter-spacing: 1px;
+        text-transform: uppercase;
+    }
+
+}
+
+@media (min-width: 1024px) and (max-width: 1199px) {.page-header-title {
+        font-size: 36px;
+        font-weight: 800;
+        color: #fff;
+        margin-bottom: 8px;
+        line-height: 1.1;
+        letter-spacing: -0.5px;
+        text-shadow: 0 2px 20px rgba(0,0,0,.15);
+        animation: title-glow 3s ease-in-out infinite;
+    }
+.page-header-subtitle {
+        font-size: 14px;
+        font-weight: 500;
+        color: rgba(255,255,255,.9);
+        letter-spacing: 1px;
+        text-transform: uppercase;
+    }
+}
+
+@media (max-width: 767px) {.page-header{
+        height: auto;
+        min-height: 0;
+        padding: 22px 0 0;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch; /* importante en columna */
+    }
+.page-header .container{ order: 1; }
+.page-header-lines{ order: 2; }
+.page-header-image{
+        order: 3;
+
+        position: relative;   /* mata el absolute de nosotros.css */
+        top: auto;
+        right: auto;
+
+        width: 100%;
+        height: auto;
+        overflow: visible;
+
+        display: block;       /* mata el flex-end */
+        margin-top: 14px;
+        z-index: 4;           /* por encima del aurora si lo necesitas */
+    }
+.page-header-image img{
+        width: 100%;
+        max-width: 100%;
+        height: auto;         /* clave: completa */
+        object-fit: initial;  /* no recorta */
+
+        margin-right: 0;
+        border-radius: 14px;
+
+        /* mata el efecto empotrado en mobile */
+        box-shadow: 0 10px 26px rgba(0,0,0,.18);
+        border-left: 0;
+        border-right: 0;
+    }
+.page-header-aurora, .page-header-particles{
+        z-index: 2;
+    }
+
+}
+</style>

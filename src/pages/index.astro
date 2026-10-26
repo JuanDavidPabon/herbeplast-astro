@@ -1,11 +1,25 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import CertificationsSection from '../components/home/CertificationsSection.astro';
+import HeroSection from '../components/home/HeroSection.astro';
+import HomeCtaSection from '../components/home/HomeCtaSection.astro';
+import IndustryCarousel from '../components/home/IndustryCarousel.astro';
+import ProductionVideo from '../components/home/ProductionVideo.astro';
+import ValueSection from '../components/home/ValueSection.astro';
+import SiteLayout from '../layouts/SiteLayout.astro';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const pageTitle = 'Herbeplast | Empaques Flexibles PE y PP - Calidad Certificada desde 1995';
+const pageDescription = 'Herbeplast produce empaques flexibles en PE y PP desde 1995. Calidad certificada, tecnología de vanguardia y servicio personalizado para industria y comercio.';
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<SiteLayout title={pageTitle} description={pageDescription}>
+	<main id="main">
+		<HeroSection />
+		<ProductionVideo />
+		<IndustryCarousel />
+		<ValueSection />
+		<CertificationsSection />
+		<HomeCtaSection />
+	</main>
+
+	<script src="../scripts/home.js"></script>
+</SiteLayout>

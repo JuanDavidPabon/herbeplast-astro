@@ -1,0 +1,374 @@
+<section id="hero" class="hero" data-parallax>
+			<div class="hero-background">
+				<!-- Art Direction: 3 imágenes diferentes -->
+				<picture>
+					<!-- Desktop: 21:9 horizontal, rostro derecha -->
+					<source
+									media="(min-width: 992px)"
+									srcset="/assets/img/banners/hero-desktop.webp"
+									type="image/webp">
+					
+					<!-- Tablet: 16:9 horizontal, rostro centrado superior -->
+					<source
+									media="(min-width: 768px) and (max-width: 991px)"
+									srcset="/assets/img/banners/hero-tablet-1920x1080.webp"
+									type="image/webp">
+					
+					<!-- Mobile: 16:9 horizontal, rostro arriba -->
+					<source
+									media="(max-width: 767px)"
+									srcset="/assets/img/banners/hero-mobile.webp"
+									type="image/webp">
+					
+					<!-- Fallback (Desktop / general) -->
+					<img
+									src="/assets/img/banners/2560x1080.webp"
+									alt=""
+									class="hero-image"
+									sizes="100vw"
+									loading="eager"
+									decoding="async"
+									fetchpriority="high">
+				</picture>
+
+				<div class="hero-overlay">
+					<!-- Elemento para efecto aurora -->
+					<div class="hero-aurora"></div>
+				</div>
+			</div>
+
+			<div class="hero-content">
+				<div class="container">
+					<h1 class="hero-title">Somos un aliado silencioso de tu marca </h1>
+					<p class="hero-subtitle">Fabricación y comercialización de empaques flexibles en polietileno y polipropileno para diversas industrias. </p>
+
+					<div class="hero-cta">
+						<a href="https://wa.me/573106979630?text=Hola,%20quiero%20cotizar%20empaques%20flexibles.%20%C2%BFMe%20ayudas%3F"
+							class="btn btn-primary btn-l btn-glow" target="_blank" rel="noopener noreferrer"
+							data-context="hero">
+							<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+								<path
+									d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+							</svg>
+							Cotizar por WhatsApp
+						</a>
+					</div>
+				</div>
+
+				<!-- Flecha de scroll animada -->
+				<div class="hero-scroll-indicator">
+					<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+						aria-hidden="true">
+						<path d="M12 5v14M19 12l-7 7-7-7" />
+					</svg>
+				</div>
+			</div>
+		</section>
+
+<style>
+.hero {
+    position: relative;
+    width: 100%;
+    /* 👇 CAMBIO CLAVE: Sin altura fija, se adapta al contenido */
+    height: auto;
+    display: block;
+    /*align-items: center;
+    justify-content: center;*/
+    color: var(--color-white);
+    overflow: hidden;
+    padding-bottom: max(0px, env(safe-area-inset-bottom));
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 3;
+    box-shadow:
+            inset 0 80px 60px -40px rgba(0, 130, 194, 0.4),
+            inset 0 -80px 60px -40px rgba(0, 155, 168, 0.4);
+}
+
+.hero-background {
+    position: relative;  /* 👈 RELATIVE, no absolute */
+    width: 100%;
+    /* Sin height definido, se adapta a la imagen */
+    display: block;
+    /*justify-content: center;
+    align-items: center;*/
+    background: linear-gradient(
+            to right,
+            #00283E 0%,
+            #00283E 50%,
+            #B4AA92 50%,
+            #B4AA92 100%
+    );
+}
+
+.hero-image {
+    display: block;
+    width: 100%;
+    height: auto;           /* 👈 AUTO: la imagen define su propio alto */
+    max-width: 2560px;      /* 👈 Ancho máximo de tu imagen */
+    object-fit: contain;    /* 👈 CONTAIN: se ve completa */
+    object-position: center;
+    margin: 0 auto;
+}
+
+[data-parallax] .hero-image {
+    transform: translateY(0);
+    transition: none;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: var(--gradient-brand);
+    opacity: 0.4;
+    overflow: hidden;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.hero-aurora {
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    top: -50%;
+    left: -50%;
+    background: var(--gradient-aurora);
+    opacity: 0;
+    filter: blur(100px);
+    animation: auroraMove 20s ease-in-out infinite;
+    pointer-events: none;
+}
+
+.hero:hover .hero-aurora {
+    opacity: 0.3;
+}
+
+@keyframes auroraMove {
+    0%,
+    100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    33% {
+        transform: translate(10%, -10%) rotate(120deg);
+    }
+    66% {
+        transform: translate(-10%, 10%) rotate(240deg);
+    }
+}
+
+.hero-content {
+    position: absolute;  /* 👈 ABSOLUTE para estar encima */
+    inset: 0;           /* 👈 Ocupar todo el hero */
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-6) 0;
+}
+
+.hero-content .container {
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 var(--space-4);
+    margin: 0 auto;
+}
+
+.hero-title {
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--color-white);
+    margin-bottom: var(--space-4);
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.1;
+    animation: fadeInUp 600ms ease-in-out 200ms backwards;
+}
+
+.hero-subtitle {
+    font-size: var(--font-body-l);
+    color: var(--color-white);
+    margin-bottom: var(--space-6);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.5;
+    animation: fadeInUp 600ms ease-in-out 400ms backwards;
+}
+
+.hero-cta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: fadeInUp 600ms ease-in-out 600ms backwards;
+}
+
+.hero-scroll-indicator {
+    position: absolute;
+    bottom: var(--space-6);
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--color-white);
+    z-index: 2;
+    animation: scrollBounce 2s ease-in-out infinite;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(24px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scrollBounce {
+    0%,
+    100% {
+        transform: translateX(-50%) translateY(0);
+    }
+    50% {
+        transform: translateX(-50%) translateY(10px);
+    }
+}
+
+@media (min-width: 1200px) {.hero-content {
+        text-align: left;
+    }
+.hero-title, .hero-subtitle {
+        margin-left: 0;
+        margin-right: auto;
+        max-width: 600px;
+    }
+.hero-cta {
+        justify-content: flex-start;
+    }
+.hero-overlay {
+        background: linear-gradient(
+                to right,
+                rgba(0, 130, 194, 0.8) 0%,
+                rgba(0, 130, 194, 0.5) 35%,
+                rgba(0, 130, 194, 0.2) 60%,
+                rgba(0, 155, 168, 0.1) 100%
+        );
+    }
+.hero-title {
+        font-size: 56px;
+    }
+.hero-scroll-indicator {
+        bottom: var(--space-8);
+    }
+
+}
+
+@media (prefers-reduced-motion: reduce) {.hero-image {
+        transform: none !important;
+        will-change: auto !important;
+    }
+.hero-aurora, .hero-scroll-indicator {
+        animation: none !important;
+    }
+}
+
+@media print {.hero-scroll-indicator, .hero-aurora {
+        display: none !important;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {section#hero.hero {
+        height: calc(var(--vh-available-tablet) * 0.7);
+        min-height: 0;       /* anula mínimos previos */
+        max-height: none;
+        padding-bottom: 0;   /* evita sumar altura extra */
+    }
+.hero { min-height: 0; }
+.hero-overlay {
+        background: linear-gradient(
+                to bottom,
+                rgba(0, 130, 194, 0.25) 0%,
+                rgba(0, 130, 194, 0.45) 50%,
+                rgba(0, 130, 194, 0.75) 80%,
+                rgba(0, 130, 194, 0.9) 100%
+        );
+    }
+.hero-title { font-size: 44px; }
+.hero-subtitle { font-size: 18px; }
+.hero-scroll-indicator { bottom: var(--space-5); }
+.hero-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+}
+
+@media (min-width: 1024px) and (max-width: 1199px) {section#hero.hero {
+        height: calc(var(--vh-available-tlarge) * 0.7);
+        min-height: 0;
+        max-height: none;
+        padding-bottom: 0;
+    }
+.hero { min-height: 0; }
+.hero-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+@media (min-width: 1024px) and (max-width: 1199px) and (orientation: landscape) {section#hero.hero { height: calc(var(--vh-available-tlarge) * 0.6); }
+}
+
+@media (max-width: 767px) {section#hero.hero {
+        height: calc(var(--vh-available) * 0.7);
+        min-height: 0;      /* anula mínimos previos */
+        max-height: 420px;
+        padding-bottom: 0;  /* evita sumar altura extra en iOS */
+    }
+section#hero.hero .hero-content {
+        padding-top: 24px;
+        padding-bottom: 24px;
+    }
+.hero-title {
+        font-size: 26px;
+        line-height: 1.2;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 360px;
+    }
+.hero-subtitle {
+        font-size: 15px;
+        line-height: 1.5;
+        text-align: center;
+        max-width: 360px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+.hero-cta { justify-content: center; }
+.hero-scroll-indicator { bottom: 16px; }
+.hero-overlay {
+        background: linear-gradient(
+                to bottom,
+                rgba(0, 130, 194, 0.9) 0%,
+                rgba(0, 130, 194, 0.7) 40%,
+                rgba(0, 130, 194, 0.4) 70%,
+                rgba(0, 155, 168, 0.3) 100%
+        );
+    }
+.hero-aurora {
+        opacity: 0.25 !important;
+        filter: blur(60px);
+        animation-duration: 20s;
+    }
+
+}
+</style>

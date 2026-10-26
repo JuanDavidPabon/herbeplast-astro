@@ -1,0 +1,31 @@
+---
+import AboutCtaSection from '../components/about/AboutCtaSection.astro';
+import AboutHero from '../components/about/AboutHero.astro';
+import AboutSection from '../components/about/AboutSection.astro';
+import WhatWeDoSection from '../components/about/WhatWeDoSection.astro';
+import SiteLayout from '../layouts/SiteLayout.astro';
+
+const pageTitle = 'Nosotros | Herbeplast';
+const pageDescription = 'Conoce a Herbeplast: quiénes somos, qué hacemos, nuestra misión y visión. Más de dos décadas fabricando empaques flexibles de calidad en Colombia.';
+---
+
+<SiteLayout
+	title={pageTitle}
+	description={pageDescription}
+	currentPage="nosotros"
+	headerContactLabel="WhatsApp"
+	headerContactHref="https://wa.me/573106979630?text=Hola,%20quiero%20informaci%C3%B3n%20sobre%20Herbeplast"
+	whatsappHref="https://wa.me/573106979630?text=Hola,%20quiero%20informaci%C3%B3n%20sobre%20Herbeplast"
+	whatsappIconSize={28}
+	whatsappTooltip="Escríbenos"
+	whatsappContext=""
+>
+	<main id="main">
+		<AboutHero />
+		<AboutSection />
+		<WhatWeDoSection />
+		<AboutCtaSection />
+	</main>
+
+	<script src="../scripts/nosotros.js"></script>
+</SiteLayout>
